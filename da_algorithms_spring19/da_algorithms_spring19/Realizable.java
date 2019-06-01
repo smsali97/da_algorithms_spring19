@@ -125,10 +125,17 @@ public class Realizable {
 
 	}
 
+	/**
+	 * Just like showOne but prints all the realizations of T by A.
+	 * 
+	 * @param A
+	 * @param T
+	 * @return
+	 */
 	public static String showAll(int[] A, int T) {
 		// Initialize 2d array of rows
 		int S = Arrays.stream(A).sum();
-//		System.out.println(S);
+
 		// limit check
 		if (T > S || T < -S) {
 			return "\t\tThe value " + T + " is not realizable\n";
@@ -176,6 +183,18 @@ public class Realizable {
 		return sb.toString();
 	}
 
+	/**
+	 * 
+	 * Helper function for showAll
+	 * @param A
+	 * @param T
+	 * @param S
+	 * @param grid
+	 * @param i
+	 * @param j
+	 * @param temp
+	 * @param str
+	 */
 	public static void showAllHelper(int[] A, int T, int S, int[][] grid, int i, int j, int temp, String str) {
 		if (i == 0) {
 

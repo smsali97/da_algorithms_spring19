@@ -4,13 +4,18 @@ public class Path {
 	private int row, col; // the row and column this node represents
 	private int cost; // the matching cost upto this point
 	private Path next; // the next node in the optimal path
-	char firstChar = '-';
-	char secondChar = '-';
-	
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "(" + row + "," + col + "," + cost + ")";
+		String s = "(" + row + "," + col + "," + cost + ")";
+		if (next == null) {
+			s += "-> (-,-)";
+		}
+		else {
+			s += "-> (" + next.row + "," + next.col + "," + next.cost + ")";
+		}
+		return s;
 	}
 	
 	public Path(int row, int col, int cost) {

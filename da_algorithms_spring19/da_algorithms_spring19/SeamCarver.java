@@ -2,21 +2,11 @@ package da_algorithms_spring19;
 
 import java.awt.Color;
 import java.io.File;
-import java.lang.invoke.ConstantCallSite;
-
-import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.PixelWriter;
-import javafx.scene.image.WritableImage;
 
 /**
- * @author sualeh
- * Seam Carver API
+ * @author sualeh Seam Carver API
  */
-/**
- * @author sualeh
- *
- */
+
 public class SeamCarver {
 	private Picture picture;
 	private double[][] minEnergyGrid;
@@ -150,8 +140,18 @@ public class SeamCarver {
 //		verticalSeamTesting();
 
 //		horizontalSeamTesting();
+		Picture picture = new Picture("HJoceanSmall.png");
 
-		SeamCarver seamCarver = new SeamCarver(new Picture("HJoceanSmall.png"));
+		Picture p = new Picture(picture.height(), picture.width());
+		Color c1;
+		for (int i = 0; i < picture.width(); i++) {
+			for (int j = 0; j < picture.height(); j++) {
+				c1 = picture.get(i, j);
+				p.set(j, i, c1);
+			}
+		}
+
+		SeamCarver seamCarver = new SeamCarver(picture);
 
 		seamCarver.picture.show();
 		final int NUM_OF_VSEAMS = (int) (0.3 * seamCarver.picture.width());
